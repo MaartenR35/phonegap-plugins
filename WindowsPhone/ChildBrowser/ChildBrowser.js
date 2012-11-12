@@ -52,6 +52,9 @@ ChildBrowser.prototype.showWebPage = function(loc,geolocationEnabled)
         if (event.type == "locationChanged") {
             ChildBrowser._onLocationChange(event.location);
         }
+        else if (event.type == "close") {
+            ChildBrowser._onClose();
+        }
   };
 
   var error = function(e)
@@ -73,7 +76,7 @@ ChildBrowser.prototype.showWebPage = function(loc,geolocationEnabled)
 // close the browser, will NOT result in close callback
 ChildBrowser.prototype.close = function()
 {
-  Cordova.exec(null,null,"ChildBrowserCommand","close");
+  Cordova.exec(this.close(),null,"ChildBrowserCommand","close");
 };
 
 // Not Implemented
