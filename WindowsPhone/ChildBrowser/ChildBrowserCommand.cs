@@ -144,10 +144,6 @@ namespace WP7CordovaClassLib.Cordova.Commands
         void closeBtn_Click(object sender, EventArgs e)
         {
             this.close();
-            string message = JSON.JsonHelper.Serialize("{\"type\":\"close\"}");
-            PluginResult result = new PluginResult(PluginResult.Status.OK, message);
-            result.KeepCallback = true;
-            this.DispatchCommandResult(result);
         }
 
 
@@ -172,6 +168,10 @@ namespace WP7CordovaClassLib.Cordova.Commands
                         }
                     }
                     browser = null;
+                    string message = JSON.JsonHelper.Serialize("{\"type\":\"close\"}");
+                    PluginResult result = new PluginResult(PluginResult.Status.OK, message);
+                    result.KeepCallback = true;
+                    this.DispatchCommandResult(result);
                 });
             }
         }
