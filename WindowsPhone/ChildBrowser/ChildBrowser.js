@@ -11,14 +11,18 @@ function ChildBrowser() {
 // called from native
 ChildBrowser._onLocationChange = function(newLoc)
 {
-  window.plugins.childBrowser.onLocationChange(newLoc);
+  if (window.plugins.childBrowser.onLocationChange) {
+    window.plugins.childBrowser.onLocationChange(newLoc);
+  }
 };
 
 // Callback when the user chooses the 'Done' button
 // called from native
 ChildBrowser._onClose = function()
 {
-  window.plugins.childBrowser.onClose();
+  if(window.plugins.childBrowser.onClose){
+    window.plugins.childBrowser.onClose();
+  }
 };
 
 // Callback when the user chooses the 'open in Safari' button
