@@ -73,10 +73,10 @@ ChildBrowser.prototype.showWebPage = function(loc,geolocationEnabled)
   //setTimeout(this.close,5000);
 };
 
-// close the browser, will result in close callback
+// close the browser, will NOT result in close callback
 ChildBrowser.prototype.close = function()
 {
-  Cordova.exec(this.close(),null,"ChildBrowserCommand","close");
+  Cordova.exec(null,null,"ChildBrowserCommand","close");
 };
 
 // Not Implemented
